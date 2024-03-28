@@ -1,5 +1,6 @@
 <?php 
 
+global $DBDRIVER, $DBHOST, $DBNAME, $DBUSER, $DBPASS;
 
 function show($stuff)
 {

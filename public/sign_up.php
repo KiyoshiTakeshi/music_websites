@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']))
     if ($row !== false) {
         authenticate($row);
         message('Sign up successful!');
-        redirect('admin');
+        redirect('login');
     } else {
         message('Sign up failed. Please try again.');
     }

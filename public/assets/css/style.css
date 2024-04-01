@@ -32,6 +32,8 @@ header{
 	background-color: #a52f00;
 	color: #fdfdfd;
 	padding: 10px 20px;
+	margin-bottom: 50px;
+	margin-top:20px;
 }
 .error{
 	color: rgb(247, 247, 247);

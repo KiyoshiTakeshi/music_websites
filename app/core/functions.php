@@ -1,6 +1,6 @@
 <?php 
 
-global $DBDRIVER, $DBHOST, $DBNAME, $DBUSER, $DBPASS;
+
 
 function show($stuff)
 {
@@ -63,6 +63,20 @@ function db_query_one($query, $data = array())
 	return false;
 }
 
+function db_query_insert($query, $data = array()) //insert db
+{
+    $con = db_connect();
+    $stm = $con->prepare($query);
+    if($stm)
+    {
+        $check = $stm->execute($data);
+        if($check){
+            return $stm->rowCount();
+        }
+    }
+    return false;
+}
+
 function message($message = '', $clear = false)
 {
 	if(!empty($message)){
@@ -98,7 +112,7 @@ function set_value($key, $default = '')
 		return $default;
 	}
 
-	return '';
+	// return ''; hỏi phúc xem là cc j vậy
 }
 
 function set_select($key, $value, $default = '')
@@ -136,6 +150,16 @@ function is_admin()
 {
 
 	if(!empty($_SESSION['USER']['role']) && $_SESSION['USER']['role'] == 'admin'){
+		return true;
+	}
+
+	return false;
+}
+
+function is_user() //Kiểm tra role user
+{
+
+	if(!empty($_SESSION['USER']['role']) && $_SESSION['USER']['role'] == 'user'){
 		return true;
 	}
 
@@ -199,4 +223,3 @@ function get_artist($id)
 
 	return "Unknown";
 }
-

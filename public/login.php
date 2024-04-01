@@ -4,21 +4,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     $values = [];
     $values['username'] = trim($_POST['username']);
-    $query = "select * from users where username = :username limit 1";
+    $values['password'] = $_POST['password']; 
+    $query = "select * from users where username = :username and password = :password limit 1";
     $row = db_query_one($query,$values);
 
     if(!empty($row))
     {
         authenticate($row);
-        message("Login successful");
-        if (is_admin()){
+        if ($row['role'] == 'admin'){
+            message("Login successful");
             redirect('admin');  				
         }
-        else redirect('index')
+        else if ($row['role'] == 'user') {
+            message("Login successful");
+            redirect('home');
+        }
     }
     else
     {
-        message("Wrong username"); 
+        if (empty($row)) {
+            message("Wrong username or password");
+        }    
     }
 }
 

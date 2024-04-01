@@ -1,4 +1,12 @@
-<?php require page('includes/header')?>
+
+
+<?php
+require_once '../app/core/functions.php';
+
+require page('includes/header');
+
+
+?>
 	
 	<div class="section-title">Music</div>
 
@@ -18,4 +26,5 @@
 
 	</section>
 
-<?php require page('includes/footer')?>
+<?php
+require page('includes/footer')?>

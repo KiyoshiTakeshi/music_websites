@@ -3,7 +3,7 @@
 if($_SERVER['SERVER_NAME'] == "localhost")
 {
 
-	define("ROOT", "http://localhost:8081/music_websites/public");
+	define("ROOT", "http://localhost:84/music_websites/public");
 	define("DBDRIVER", "mysql");
 	define("DBHOST", "localhost");
 	define("DBUSER", "root");

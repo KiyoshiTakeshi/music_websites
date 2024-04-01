@@ -51,9 +51,8 @@
 				$values['email'] 	= trim($_POST['email']);
 				$values['role'] 	= trim($_POST['role']);
 				$values['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-				$values['date'] 	= date("Y-m-d H:i:s");
 
-				$query = "insert into users (username,email,password,role,date) values (:username,:email,:password,:role,:date)";
+				$query = "insert into users (username,email,password,role) values (:username,:email,:password,:role)";
 				db_query($query,$values);
 
 				message("user created successfully");
@@ -307,7 +306,6 @@
   					<th>Username</th>
   					<th>Email</th>
   					<th>Role</th>
-  					<th>Date</th>
   					<th>Action</th>
   				</tr>
 
@@ -318,7 +316,6 @@
 		  					<td><?=$row['username']?></td>
 		  					<td><?=$row['email']?></td>
 		  					<td><?=$row['role']?></td>
-		  					<td><?=get_date($row['date'])?></td>
 		  					<td>
 		  						<a href="<?=ROOT?>/admin/users/edit/<?=$row['id']?>">
 		  							<img class="bi" src="<?=ROOT?>/assets/icons/pencil-square.svg">

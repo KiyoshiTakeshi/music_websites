@@ -1,4 +1,5 @@
 <?php
+
 include "../app/core/functions.php";
 include "../app/core/config.php";
 

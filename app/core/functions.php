@@ -1,4 +1,10 @@
 <?php 
+define('DBDRIVER', 'mysql');
+define('DBHOST', 'localhost');
+define('DBNAME', 'music_website_db');
+define('DBUSER', 'root');
+define('DBPASS', '');
+
 
 
 
